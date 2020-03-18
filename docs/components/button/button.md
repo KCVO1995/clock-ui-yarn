@@ -1,8 +1,10 @@
 ---
-index: 22
 title: button
 ---
 # 按钮
+---
+
+## 
 
 <button-button-demo></button-button-demo>
 
