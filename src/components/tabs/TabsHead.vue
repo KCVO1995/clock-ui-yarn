@@ -10,7 +10,7 @@
 
 <script>
   export default {
-    name: "ClockTabsHead",
+    name: "c-tabs-head",
     inject: ["eventBus"],
     mounted() {
       this.eventBus.$on("update:selected", (selected) => {

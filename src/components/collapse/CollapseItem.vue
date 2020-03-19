@@ -11,6 +11,7 @@
 
 <script>
   export default {
+    name: 'c-collapse-item',
     inject: ["eventBus"],
     props: {
       title: {

@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    name: "ClockPopover",
+    name: "c-popover",
     props: {
       position: {
         type: String,

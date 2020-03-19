@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "ClockFooter"
+    name: "c-footer"
   }
 </script>
 

@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "ClockTabsPane",
+    name: "c-tabs-pane",
     inject: ["eventBus"],
     data() {
       return {

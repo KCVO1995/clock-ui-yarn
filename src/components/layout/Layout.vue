@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "ClockLayout",
+    name: "c-layout",
     data() {
       return {
         hasSide: false

@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    name: "ClockHeader"
+    name: "c-header"
   }
 </script>

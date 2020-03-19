@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "FanButtonGroup",
+    name: "c-button-group",
     mounted() {
       for (let node of this.$el.children) {
         const name = node.nodeName.toLocaleLowerCase()

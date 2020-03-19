@@ -18,7 +18,7 @@
 
   export default {
     components: {Icon},
-    name: 'ClockInput',
+    name: 'c-input',
     props: {
       value: {type: String},
       placeholder: {type: String},

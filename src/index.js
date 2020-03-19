@@ -17,8 +17,7 @@ import CloTabsPane from "./components/tabs/TabsPane"
 import CloPopover from "./Popover"
 import CloCollapse from "./components/collapse/Collapse"
 import CloCollapseItem from "./components/collapse/CollapseItem"
-// TODO
-import plugin from "./plugin"
+import CloToast from "./components/toast/Toast"
 
 export {
   CloButton,
@@ -40,4 +39,5 @@ export {
   CloPopover,
   CloCollapse,
   CloCollapseItem,
+  CloToast
 }

@@ -15,7 +15,7 @@
   }
 
   export default {
-    name: "ClockCol",
+    name: "c-col",
     props: {
       span: {type: [Number, String]},
       offset: {type: [Number, String]},

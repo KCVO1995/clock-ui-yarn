@@ -8,7 +8,7 @@
   import Vue from "vue"
 
   export default {
-    name: "ClockTabs",
+    name: "c-tabs",
     props: {
       selected: {
         type: [String, Number],

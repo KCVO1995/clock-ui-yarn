@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  export default {name: "ClockTabsBody"}
+  export default {name: "c-tabs-body"}
 </script>
 
 <style lang='scss' scoped>

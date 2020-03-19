@@ -6,6 +6,6 @@
 
 <script>
   export default {
-    name: "ClockSider"
+    name: "c-sider"
   }
 </script>

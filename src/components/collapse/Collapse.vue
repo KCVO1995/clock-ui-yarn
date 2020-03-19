@@ -7,7 +7,7 @@
 <script>
   import Vue from "vue"
   export default {
-    name: "ClockCollapse",
+    name: "c-collapse",
     props: {
       single: {
         type: Boolean,

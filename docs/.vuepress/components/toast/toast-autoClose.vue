@@ -9,7 +9,7 @@
 </template>
 <script>
   import Button from "../../../../src/components/button/Button"
-  import plugin from "../../../../src/plugin"
+  import plugin from "../../../../src/components/toast/Toast"
   import Vue from "vue"
 
   Vue.use(plugin)

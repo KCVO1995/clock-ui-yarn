@@ -10,7 +10,7 @@
 
 <script>
   export default {
-    name: "ClockToast",
+    name: "c-toast",
     props: {
       autoClose: {
         type: [Boolean, Number],

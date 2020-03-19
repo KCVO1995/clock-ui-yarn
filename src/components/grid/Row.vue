@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "ClockRow",
+    name: "c-row",
     props: {
       gutter: {type: [String, Number]},
       align: {
