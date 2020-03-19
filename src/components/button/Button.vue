@@ -1,7 +1,7 @@
 <template>
-  <button class="g-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
+  <button class="c-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
     <c-icon icon="loading" class="loading" v-if="loading">placeholder</c-icon>
-    <c-icon :icon="icon" v-if="icon && !loading">placeholder</c-icon>
+    <c-icon :icon="icon" v-if="icon && !loading" :class="{noSlot}">placeholder</c-icon>
     <div class="content">
       <slot/>
     </div>
@@ -14,6 +14,9 @@
   export default {
     name: "c-button",
     components: {"c-icon": Icon},
+    computed: {
+      noSlot() {return !this.$slots.default}
+    },
     props: {
       icon: {},
       loading: {
@@ -27,7 +30,7 @@
           return value === "left" || value === "right"
         }
       }
-    }
+    },
   }
 
 </script>
@@ -45,7 +48,7 @@
     from {transform: rotate(0deg);}
     to {transform: rotate(360deg);}
   }
-  .g-button {
+  .c-button {
     height: $button-height;
     font-size: $font-size;
     padding: 0 1em;
@@ -63,11 +66,13 @@
     > .icon {
       order: 1;
       margin-right: .3em;
+      &.noSlot {margin-right: 0;}
     }
     &.icon-right {
       > .icon {
         order: 2;
         margin-left: .3em;
+        &.noSlot {margin-left: 0;}
       }
       > .content {order: 1}
     }

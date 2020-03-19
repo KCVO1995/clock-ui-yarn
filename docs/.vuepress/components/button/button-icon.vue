@@ -1,30 +1,27 @@
 <template>
-  <div style="padding-top: 16px;">
-    <p><strong>预览</strong></p>
-    <c-button icon="setting">按钮</c-button>
-    <c-button icon="right">按钮</c-button>
-    <c-button icon="left">按钮</c-button>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
+  <div class="global">
+    <c-button icon="setting"></c-button>
+    <c-button icon="like"></c-button>
+    <c-button icon="download">下载</c-button>
+    <c-button icon="left">上一页</c-button>
+    <c-button icon="right">下一页</c-button>
+    <c-button icon="down">展开</c-button>
   </div>
 </template>
 <script>
   import Button from "../../../../src/components/button/Button"
 
   export default {
-    components: {
-      "c-button": Button
-    },
-    data() {
-      return {
-        content: `
-          <c-button icon="setting">默认按钮</c-button>
-          <c-button icon="right">按钮</c-button>
-          <c-button icon="left">按钮</c-button>
-      `.replace(/^ {8}/gm, "").trim()
-      }
-    }
+    components: {"c-button": Button},
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "../../styles/helper";
+  .global {
+    @extend %box;
+    > .c-button {
+      margin-right: 10px;
+    }
+  }
+</style>

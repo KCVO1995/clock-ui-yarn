@@ -24,7 +24,7 @@
   .global {
     display: inline-flex;
     vertical-align: middle;
-    > .g-button {
+    > .c-button {
       border-radius: 0;
       &:not(first-child) {margin-left: -1px}
     ;

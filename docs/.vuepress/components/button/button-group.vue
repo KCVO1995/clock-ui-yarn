@@ -1,14 +1,15 @@
 <template>
-  <div style="padding-top: 16px;">
+  <div class="box" >
     <c-button-group>
-      <c-button>按钮</c-button>
-      <c-button>按钮</c-button>
-      <c-button>按钮</c-button>
+      <c-button icon="left">上一页</c-button>
+      <c-button icon="right">上一页</c-button>
     </c-button-group>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
+
+    <c-button-group>
+      <c-button icon="setting"></c-button>
+      <c-button icon="loading"></c-button>
+      <c-button icon="like"></c-button>
+    </c-button-group>
   </div>
 </template>
 <script>
@@ -20,14 +21,16 @@
       "c-button": Button,
       "c-button-group": ButtonGroup
     },
-    data() {
-      return {
-        content: `
-          <c-button>按钮</c-button>
-          <c-button>按钮</c-button>
-          <c-button>按钮</c-button>
-      `.replace(/^ {8}/gm, "").trim()
-      }
-    }
+
   }
 </script>
+
+<style lang="scss" scoped >
+  @import "../../styles/helper";
+  .box {
+    @extend %box;
+    > .global {
+    margin-right: 10px;
+  }
+  }
+</style>
