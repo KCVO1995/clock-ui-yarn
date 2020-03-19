@@ -30,9 +30,12 @@ title: button
 
 
 ```html
-<c-button icon="setting">按钮</c-button>
-<c-button icon="right">按钮</c-button>
-<c-button icon="left"></c-button>
+<c-button icon="setting"></c-button>
+<c-button icon="like"></c-button>
+<c-button icon="download">下载</c-button>
+<c-button icon="left">上一页</c-button>
+<c-button icon="right">下一页</c-button>
+<c-button icon="down">展开</c-button>
 ```
 
 `button` 组件默认提供 6 种 `icon`, 设置 `icon` 属性即可使用，也可以通过 `Symbol` 的方式引入自定义图标，然后把图标名传给 `icon` 属性即可
