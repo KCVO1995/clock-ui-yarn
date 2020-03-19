@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-  import Button from "../../../../src/button/Button"
+  import Button from "../../../../src/components/button/Button"
   import plugin from "../../../../src/plugin"
   import Vue from "vue"
 

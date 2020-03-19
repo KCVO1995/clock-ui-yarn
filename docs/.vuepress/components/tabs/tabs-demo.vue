@@ -26,12 +26,12 @@
   </div>
 </template>
 <script>
-  import Tabs from "../../../../src/tabs/Tabs"
-  import TabsHead from "../../../../src/tabs/TabsHead"
-  import TabsBody from "../../../../src/tabs/TabsBody"
-  import TabsItem from "../../../../src/tabs/TabsItem"
-  import TabsPane from "../../../../src/tabs/TabsPane"
-  import Button from "../../../../src/button/Button"
+  import Tabs from "../../../../src/components/tabs/Tabs"
+  import TabsHead from "../../../../src/components/tabs/TabsHead"
+  import TabsBody from "../../../../src/components/tabs/TabsBody"
+  import TabsItem from "../../../../src/components/tabs/TabsItem"
+  import TabsPane from "../../../../src/components/tabs/TabsPane"
+  import Button from "../../../../src/components/button/Button"
   import Icon from "../../../../src/Icon"
 
 

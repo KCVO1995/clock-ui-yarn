@@ -16,11 +16,11 @@
 </template>
 
 <script>
-  import Layout from "../../../src/layout/Layout"
-  import Sider from "../../../src/layout/Sider"
-  import Header from "../../../src/layout/Header"
-  import Content from "../../../src/layout/Content"
-  import Footer from "../../../src/layout/Footer"
+  import Layout from "../../../src/components/layout/Layout"
+  import Sider from "../../../src/components/layout/Sider"
+  import Header from "../../../src/components/layout/Header"
+  import Content from "../../../src/components/layout/Content"
+  import Footer from "../../../src/components/layout/Footer"
 
   export default {
     components: {

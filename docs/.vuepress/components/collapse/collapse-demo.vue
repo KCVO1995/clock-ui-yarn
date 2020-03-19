@@ -16,8 +16,8 @@
   </div>
 </template>
 <script>
-  import Collapse from "../../../../src/collapse/Collapse"
-  import CollapseItem from "../../../../src/collapse/CollapseItem"
+  import Collapse from "../../../../src/components/collapse/Collapse"
+  import CollapseItem from "../../../../src/components/collapse/CollapseItem"
 
   export default {
     components: {

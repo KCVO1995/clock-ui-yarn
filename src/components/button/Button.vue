@@ -9,10 +9,10 @@
 </template>
 
 <script>
-  import Icon from "../Icon.vue"
+  import Icon from "../../Icon.vue"
 
   export default {
-    name: "FanButton",
+    name: "c-button",
     components: {"c-icon": Icon},
     props: {
       icon: {},

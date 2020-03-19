@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-  import Button from "../../../../src/button/Button"
+  import Button from "../../../../src/components/button/Button"
   import Popover from "../../../../src/Popover"
 
 

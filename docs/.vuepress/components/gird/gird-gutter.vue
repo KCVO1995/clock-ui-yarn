@@ -18,8 +18,8 @@
   </div>
 </template>
 <script>
-  import Col from "../../../../src/grid/Col"
-  import Row from "../../../../src/grid/Row"
+  import Col from "../../../../src/components/grid/Col"
+  import Row from "../../../../src/components/grid/Row"
 
   export default {
     components: {

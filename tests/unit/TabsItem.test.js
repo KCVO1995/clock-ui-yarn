@@ -1,6 +1,6 @@
 const expect = chai.expect
 import Vue from "vue"
-import TabsItem from "../src/tabs/TabsItem"
+import TabsItem from "../../src/components/tabs/TabsItem"
 
 Vue.config.productionTip = false
 Vue.config.devtools = false

@@ -4,10 +4,13 @@
   </svg>
 </template>
 
-<script lang='ts'>
+<script>
   import './svg.js';
 
-  export default {props: {icon: {type: String}}};
+  export default {
+    name: 'c-icon',
+    props: {icon: {type: String}}
+  };
 
 </script>
 
