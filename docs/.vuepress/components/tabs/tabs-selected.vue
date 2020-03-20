@@ -1,6 +1,6 @@
 <template>
   <div class="global">
-    <c-tabs selected="chinese" class="tab">
+    <c-tabs :selected.sync="selectedTab" class="tab">
       <c-tabs-head>
         <template v-slot:actions>
           <c-button>设置</c-button>
@@ -18,6 +18,7 @@
         <c-tabs-pane name="math">数学相关资讯</c-tabs-pane>
         <c-tabs-pane name="english">英语相关资讯</c-tabs-pane>
       </c-tabs-body>
+      <p>selectedTab: {{selectedTab}}</p>
     </c-tabs>
   </div>
 </template>
@@ -41,6 +42,11 @@
       "c-button": Button,
       "c-icon": Icon
     },
+    data() {
+      return {
+        selectedTab: "chinese"
+      }
+    }
   }
 </script>
 

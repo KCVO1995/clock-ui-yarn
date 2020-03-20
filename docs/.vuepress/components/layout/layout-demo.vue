@@ -26,7 +26,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .container {
     height: 200px;
     color: #fff;
