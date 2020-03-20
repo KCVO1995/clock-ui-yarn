@@ -14,7 +14,7 @@
     },
     mounted() {
       this.$children.forEach(vm => {
-        if (vm.$options.name === "ClockSider") {this.hasSide = true}
+        if (vm.$options.name === "c-sider") {this.hasSide = true}
       })
     }
   }
