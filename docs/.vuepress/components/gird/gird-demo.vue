@@ -1,16 +1,12 @@
 <template>
   <div style="padding-top: 16px;">
-    <c-row class="row-height">
-      <c-col class="bg-blue"></c-col>
-      <c-col class="bg-yellow"></c-col>
-      <c-col class="bg-blue"></c-col>
-      <c-col class="bg-yellow"></c-col>
-      <c-col class="bg-blue"></c-col>
+    <c-row>
+      <c-col class="bg-lime"></c-col>
+      <c-col class="bg-green"></c-col>
+      <c-col class="bg-lime"></c-col>
+      <c-col class="bg-green"></c-col>
+      <c-col class="bg-lime"></c-col>
     </c-row>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
   </div>
 </template>
 <script>
@@ -22,26 +18,12 @@
       "c-col": Col,
       "c-row": Row
     },
-    data() {
-      return {
-        content: `
-          <c-button>默认按钮</c-button>
-      `.replace(/^ {8}/gm, "").trim()
-      }
-    }
   }
 </script>
 
-<style>
-  .bg-blue {
-    background: blue;
-  }
+<style scoped>
+  .bg-lime {background: #EDFFEA; height: 60px;}
 
-  .bg-yellow {
-    background: yellow;
-  }
+  .bg-green {background: #75DAAD; height: 60px;}
 
-  .row-height {
-    height: 80px;
-  }
 </style>

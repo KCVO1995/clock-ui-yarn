@@ -1,14 +1,10 @@
 <template>
   <div style="padding-top: 16px;">
-    <c-row class="row-height">
-      <c-col span="10" class="bg-blue"></c-col>
-      <c-col span="8" offset="5" class="bg-yellow"></c-col>
-      <c-col span="6" offset="10" class="bg-blue"></c-col>
+    <c-row>
+      <c-col span="8" class="bg-lime"></c-col>
+      <c-col span="6" offset="5" class="bg-green"></c-col>
+      <c-col span="3" offset="2" class="bg-lime"></c-col>
     </c-row>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
   </div>
 </template>
 <script>
@@ -20,26 +16,18 @@
       "c-col": Col,
       "c-row": Row
     },
-    data() {
-      return {
-        content: `
-          <c-button>默认按钮</c-button>
-      `.replace(/^ {8}/gm, "").trim()
-      }
-    }
   }
 </script>
 
-<style>
-  .bg-blue {
-    background: blue;
+<style scoped>
+  .bg-lime {
+    background: #EDFFEA;
+    height: 60px;
   }
 
-  .bg-yellow {
-    background: yellow;
+  .bg-green {
+    background: #75DAAD;
+    height: 60px;
   }
 
-  .row-height {
-    height: 80px;
-  }
 </style>

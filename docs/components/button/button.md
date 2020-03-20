@@ -1,7 +1,7 @@
 ---
-title: 按钮 - button
+title: 按钮 - Button
 ---
-# Button 按钮
+# 按钮 - Button
 ---
 
 ## 基础用法 

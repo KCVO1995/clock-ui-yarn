@@ -21,14 +21,14 @@ module.exports = {
         text: "组件",
         link: '/components',
         children: [
-          {text: '按钮-button', link: '/button'},
-          {text: '输入框-input', link: '/input'},
-          {text: '网络布局-grid', link: '/grid'},
-          {text: '默认布局-layout', link: '/layout'},
-          {text: '弹出信息-toast', link: '/toast'},
-          {text: '标签-tabs', link: '/tabs'},
-          {text: '气泡卡片-popover', link: '/popover'},
-          {text: '折叠面板-collapse', link: '/collapse'},
+          {text: "按钮-Button", link: "/button"},
+          {text: "输入框-Input", link: "/input"},
+          {text: "栅格布局-Grid", link: "/grid"},
+          {text: "默认布局-Layout", link: "/layout"},
+          {text: "弹出信息-Toast", link: "/toast"},
+          {text: "标签-Tabs", link: "/tabs"},
+          {text: "气泡卡片-Popover", link: "/popover"},
+          {text: "折叠面板-Collapse", link: "/collapse"},
         ]
       }
     ],
