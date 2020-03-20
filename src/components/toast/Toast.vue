@@ -1,8 +1,7 @@
 <template>
   <div class="container" ref="container" :class="`position-${position}`">
     <div class="message">
-      <div v-if="enableHtml" v-html="$slots.default[0]"></div>
-      <slot v-if="!enableHtml">placeholder</slot>
+      <slot/>
     </div>
     <button class="close" ref="closeHeight" @click="onClickClose" v-if="closeButton">{{closeButton.text}}</button>
   </div>
@@ -21,10 +20,6 @@
       },
       closeButton: {
         type: Object,
-      },
-      enableHtml: {
-        type: Boolean,
-        default: false
       },
       position: {
         type: String,

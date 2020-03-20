@@ -1,10 +1,7 @@
 <template>
-  <div style="padding-top: 16px;">
-    <c-button @click="showToast">弹出信息</c-button>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
+  <div class="global">
+    <c-button @click="showToast_1">string</c-button>
+    <c-button @click="showToast_2">html</c-button>
   </div>
 </template>
 <script>
@@ -18,19 +15,26 @@
     components: {
       "c-button": Button
     },
-    data() {
-      return {
-        content: `
-         <c-input></c-input>
-      `.replace(/^ {8}/gm, "").trim()
-      }
-    },
     methods: {
-      showToast() {
-        this.$toast("我是message", {
-          closeButton: {text: "我知道了", callback: () => {console.log("我知道了")}},
-        })
+      showToast_1() {
+        this.$toast("我是 message")
+      },
+      showToast_2() {
+        this.$toast( < a
+        href = "https://kcvo.top/"
+        target = "blank" > my
+        blog < /a>)
       },
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "../../styles/helper";
+  .global {
+    @extend %box;
+    > .c-button {
+      margin-right: 10px;
+    }
+  }
+</style>

@@ -1,10 +1,8 @@
 <template>
-  <div style="padding-top: 16px;">
-    <c-button @click="showToast">弹出信息</c-button>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
+  <div class="global">
+    <c-button @click="showToast_1">从顶部弹出</c-button>
+    <c-button @click="showToast_2">从中间弹出</c-button>
+    <c-button @click="showToast_3">从底部弹出</c-button>
   </div>
 </template>
 <script>
@@ -18,19 +16,32 @@
     components: {
       "c-button": Button
     },
-    data() {
-      return {
-        content: `
-         <c-input></c-input>
-      `.replace(/^ {8}/gm, "").trim()
-      }
-    },
     methods: {
-      showToast() {
+      showToast_1() {
+        this.$toast("我是message", {
+          position: "top"
+        })
+      },
+      showToast_2() {
         this.$toast("我是message", {
           position: "middle"
+        })
+      },
+      showToast_3() {
+        this.$toast("我是message", {
+          position: "bottom"
         })
       },
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "../../styles/helper";
+  .global {
+    @extend %box;
+    > .c-button {
+      margin-right: 10px;
+    }
+  }
+</style>
