@@ -1,25 +1,22 @@
 <template>
-  <div style="padding-top: 16px;">
+  <div class="global">
     <c-input v-model="value"></c-input>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
   </div>
 </template>
 <script>
   import Input from "../../../../src/Input"
 
   export default {
-    components: {
-      "c-input": Input
-    },
+    components: {"c-input": Input},
     data() {
       return {
-        content: `
-         <c-input v-model="value"></c-input>
-      `.replace(/^ {8}/gm, "").trim()
+        value: ""
       }
-    }
+    },
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "../../styles/helper";
+  .global {@extend %box}
+</style>

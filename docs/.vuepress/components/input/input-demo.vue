@@ -1,10 +1,6 @@
 <template>
-  <div style="padding-top: 16px;">
+  <div class="global">
     <c-input></c-input>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
   </div>
 </template>
 <script>
@@ -14,12 +10,11 @@
     components: {
       "c-input": Input
     },
-    data() {
-      return {
-        content: `
-         <c-input></c-input>
-      `.replace(/^ {8}/gm, "").trim()
-      }
-    }
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "../../styles/helper";
+  .global {@extend %box}
+</style>
+

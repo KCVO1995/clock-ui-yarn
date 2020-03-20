@@ -1,25 +1,17 @@
 <template>
-  <div style="padding-top: 16px;">
-    <c-input disabled></c-input>
-    <p>
-      <strong>代码</strong>
-    </p>
-    <pre><code>{{content}}</code></pre>
+  <div class="global">
+    <c-input disabled placeholder="不可用"></c-input>
   </div>
 </template>
 <script>
   import Input from "../../../../src/Input"
 
   export default {
-    components: {
-      "c-input": Input
-    },
-    data() {
-      return {
-        content: `
-         <c-input disabled></c-input>
-      `.replace(/^ {8}/gm, "").trim()
-      }
-    }
+    components: {"c-input": Input}
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "../../styles/helper";
+  .global {@extend %box}
+</style>

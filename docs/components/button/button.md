@@ -1,5 +1,5 @@
 ---
-title: button
+title: 按钮 - button
 ---
 # Button 按钮
 ---
@@ -19,8 +19,8 @@ title: button
 带图标的按钮可增强辨识度（有文字）或节省空间（无文字）。
 
 ::: tip
-可选
- 
+#### 
+* 可选
 * 类型: `string`
 * 默认值: `undefined`
 :::
@@ -46,8 +46,8 @@ title: button
 可控制 `icon` 的显示位置
 
 ::: tip
-可选
-
+#### 
+* 可选
 * 类型: `string`
 * 默认值: `left`
 * 可接受值: `left right`
@@ -67,8 +67,8 @@ title: button
 可用于展示正在加载的状态
 
 ::: tip
-可选
-
+#### 
+* 可选
 * 类型: `Boolean`
 * 默认值: `false`
 * 可接受值: `true false`

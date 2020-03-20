@@ -1,6 +1,6 @@
 <template>
   <div class="global">
-    <c-input placeholder="请输入内容"></c-input>
+    <c-input error="您输入的信息不符合要求"></c-input>
   </div>
 </template>
 <script>

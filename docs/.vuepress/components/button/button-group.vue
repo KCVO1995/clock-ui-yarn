@@ -7,7 +7,7 @@
 
     <c-button-group>
       <c-button icon="setting"></c-button>
-      <c-button icon="loading"></c-button>
+      <c-button icon="download"></c-button>
       <c-button icon="like"></c-button>
     </c-button-group>
   </div>

@@ -25,7 +25,7 @@
       disabled: {type: Boolean, default: false},
       readonly: {type: Boolean, default: false},
       error: {type: String}
-    }
+    },
   };
 </script>
 
