@@ -13,11 +13,17 @@
         type: Boolean,
         default: false
       },
-      selected: {type: Array,},
+      selected: {
+        type: Array,
+        default: () => {
+          return []
+        }
+      },
     },
     data() {
       return {
-        eventBus: new Vue
+        eventBus: new Vue,
+        mySelected: this.selected
       }
     },
     provide() {
@@ -32,8 +38,14 @@
 
     methods: {
       addSelected(title) {
-        let selectedCopy = JSON.parse(JSON.stringify(this.selected))
-        if (this.single) {selectedCopy = [title]} else {selectedCopy.push(title)}
+        console.log(this.selected)
+        let selectedCopy = JSON.parse(JSON.stringify(this.mySelected))
+        if (this.single) {
+          selectedCopy = [title]
+        } else {
+          selectedCopy.push(title)
+          console.log(selectedCopy)
+        }
         return selectedCopy
       },
 
@@ -46,9 +58,11 @@
 
       remove() {
         this.eventBus.$on("update:removeSelected", (title) => {
-          let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+          let selectedCopy = JSON.parse(JSON.stringify(this.mySelected))
           const index = selectedCopy.indexOf(title)
+          console.log(selectedCopy, title, index)
           selectedCopy.splice(index, 1)
+          console.log(selectedCopy)
           this.emit(selectedCopy)
         })
       },
@@ -56,6 +70,7 @@
       emit(selectedCopy) {
         this.$emit("update:selected", selectedCopy)
         this.eventBus.$emit("update:selected", selectedCopy)
+        this.mySelected = selectedCopy
       }
     },
   }

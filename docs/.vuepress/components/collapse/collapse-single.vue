@@ -1,6 +1,6 @@
 <template>
-  <div style="padding-top: 16px;">
-    <c-collapse :selected="['标题1']" single>
+  <div class="global">
+    <c-collapse single>
       <c-collapse-item title="标题1">
         <div class="content">这里是第1段内容</div>
       </c-collapse-item>
@@ -26,3 +26,13 @@
     },
   }
 </script>
+
+<style lang="scss" scoped>
+  @import "../../styles/helper";
+  .global {
+    @extend %box;
+    > .collapse {
+      width: 100%;
+    }
+  }
+</style>

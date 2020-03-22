@@ -1,6 +1,6 @@
 <template>
   <div class="global">
-    <c-collapse>
+    <c-collapse :selected="['标题1','标题2']">
       <c-collapse-item title="标题1">
         <div class="content">这里是第1段内容</div>
       </c-collapse-item>

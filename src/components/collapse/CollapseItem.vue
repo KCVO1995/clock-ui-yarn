@@ -53,6 +53,7 @@
       display: flex;
       align-items: center;
       padding: 0 8px;
+      font-weight: bold;
       &.itemOpen {
         border-bottom: 1px solid $grey;
       }

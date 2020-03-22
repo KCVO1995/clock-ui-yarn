@@ -18,7 +18,7 @@
         <c-tabs-pane name="math">数学相关资讯</c-tabs-pane>
         <c-tabs-pane name="english">英语相关资讯</c-tabs-pane>
       </c-tabs-body>
-      <p>selectedTab: {{selectedTab}}</p>
+      <p style="color: rgb(66, 185, 130);">selectedTab: {{selectedTab}}</p>
     </c-tabs>
   </div>
 </template>
