@@ -22,7 +22,7 @@
       <template v-slot:content>
         <div>这是气泡卡片的内容</div>
       </template>
-      <c-button>从右侧弹出</c-button>
+      <c-button style="margin-right: 0;">从右侧弹出</c-button>
     </c-popover>
   </div>
 </template>

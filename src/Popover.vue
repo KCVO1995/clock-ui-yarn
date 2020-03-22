@@ -1,6 +1,7 @@
 <template>
   <div class="popover" ref="popover">
-    <div v-if="visible" class="contentWrapper" ref="contentWrapper" :class="{[`position-${position}`]: true}">
+    <div v-if="visible" class="contentWrapper" ref="contentWrapper"
+         :class="{[`position-${position}`]: true, create: true}">
       <slot name="content" v-bind:close="close"/>
     </div>
     <span class="triggerWrapper" ref="toggleWrapper">
@@ -75,8 +76,12 @@
       over() {this.hover = true},
 
       close() {
-        this.visible = false
-        document.removeEventListener("click", this.onClickDocument)
+        this.$refs.contentWrapper.classList.add("destroy")
+        window.setTimeout(() => {
+          this.visible = false
+          document.removeEventListener("click", this.onClickDocument)
+        }, 200)
+
       },
 
       mouseleave() {
@@ -121,6 +126,22 @@
   $border-radius: 4px;
   $max-width: 20em;
   $popover-bg: white;
+  @keyframes create {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 100%;
+    }
+  }
+  @keyframes destroy {
+    from {
+      opacity: 100%;
+    }
+    to {
+      opacity: 0;
+    }
+  }
   .popover {
     position: relative;
     display: inline-block;
@@ -137,6 +158,7 @@
     padding: .5em 1em;
     max-width: $max-width;
     word-break: break-all;
+    animation: create 200ms;
     &::before, &::after {
       content: '';
       display: block;
@@ -144,6 +166,9 @@
       height: 0;
       position: absolute;
       border: 10px solid transparent;
+    }
+    &.destroy {
+      animation: destroy 200ms;
     }
     &.position-top {
       transform: translateY(-100%);

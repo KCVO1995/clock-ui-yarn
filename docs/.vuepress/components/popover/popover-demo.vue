@@ -1,6 +1,6 @@
 <template>
   <div class="global">
-    <c-popover>
+    <c-popover position="right">
       <template v-slot:content>
         <div>这是气泡卡片的内容</div>
       </template>
