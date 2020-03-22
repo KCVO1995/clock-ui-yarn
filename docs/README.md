@@ -2,7 +2,7 @@
 home: true
 message: Welcome to my Blog
 actionText: Start →
-actionLink: /components
+actionLink: /
 features:
 - title: 简洁至上
   details: 以 Markdown 为中心的项目结构，以 SPA 为导航的博客布局。

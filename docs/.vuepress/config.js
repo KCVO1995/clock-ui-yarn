@@ -13,8 +13,8 @@ module.exports = {
     ],
     menu: [
       {
-        text: "入门",
-        link: '/',
+        text: '入门',
+        link: '/start',
         children: [{text: 'install', link: '/install'}, {text: 'get-started', link: '/get-started'}]
       },
       {
