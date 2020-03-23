@@ -128,7 +128,7 @@
   $popover-bg: white;
   @keyframes create {
     from {
-      opacity: 0;
+      opacity: 0%;
     }
     to {
       opacity: 100%;
@@ -139,7 +139,7 @@
       opacity: 100%;
     }
     to {
-      opacity: 0;
+      opacity: 0%;
     }
   }
   .popover {

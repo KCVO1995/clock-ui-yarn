@@ -35,18 +35,12 @@ export default {
     }
   },
   methods: {
-    input(value) {console.log(value)},
-    change(value) {console.log(value)},
-    focus(value) {console.log(value)},
     showToast() {
       this.$toast("我是message", {
         autoClose: 500,
         closeButton: {text: "我知道了", callback: () => {console.log("我知道了")}},
       })
     },
-    click() {
-      console.log("用户的傻逼事件")
-    }
   }
 }
 </script>

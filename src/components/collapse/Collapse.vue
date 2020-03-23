@@ -38,13 +38,11 @@
 
     methods: {
       addSelected(title) {
-        console.log(this.selected)
         let selectedCopy = JSON.parse(JSON.stringify(this.mySelected))
         if (this.single) {
           selectedCopy = [title]
         } else {
           selectedCopy.push(title)
-          console.log(selectedCopy)
         }
         return selectedCopy
       },
@@ -60,9 +58,7 @@
         this.eventBus.$on("update:removeSelected", (title) => {
           let selectedCopy = JSON.parse(JSON.stringify(this.mySelected))
           const index = selectedCopy.indexOf(title)
-          console.log(selectedCopy, title, index)
           selectedCopy.splice(index, 1)
-          console.log(selectedCopy)
           this.emit(selectedCopy)
         })
       },

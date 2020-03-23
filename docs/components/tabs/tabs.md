@@ -1,8 +1,8 @@
 ---
-title: 标签 -  Tabs 
+title: 分组标签 -  Tabs 
 ---
 
-# 标签 - Tabs
+# 分组标签 - Tabs
 
 ## 基础用法
 
