@@ -1,6 +1,6 @@
 <template>
   <div class="popover" ref="popover">
-    <div v-if="visible" class="contentWrapper" ref="contentWrapper"
+    <div v-if="visible" class="content-wrapper" ref="contentWrapper"
          :class="{[`position-${position}`]: true, create: true}">
       <slot name="content" v-bind:close="close"/>
     </div>
@@ -149,7 +149,7 @@
       display: inline-block;
     }
   }
-  .contentWrapper {
+  .content-wrapper {
     position: absolute;
     border: 1px solid $border-color;
     border-radius: $border-radius;

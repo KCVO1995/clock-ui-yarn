@@ -1,5 +1,10 @@
-const expect = chai.expect;
+import sinon from 'sinon'
+import chai, {expect} from 'chai'
+import sinonChai from 'sinon-chai'
 import Vue from 'vue'
+import {mount} from '@vue/test-utils'
+
+chai.use(sinonChai)
 import Input from '../../src/Input'
 
 Vue.config.productionTip = false
@@ -10,52 +15,45 @@ describe('input', () => {
     expect(Input).exist
   })
   describe('props', () => {
-    const Constructor = Vue.extend(Input)
-    let vm
-    afterEach(() => {vm.$destroy()})
     it('接受 value', () => {
-      vm = new Constructor({propsData: {value: "hi"}}).$mount()
-      const input = vm.$el.querySelector('input')
+      const wrapper = mount(Input, {propsData: {value: 'hi'}})
+      const input = wrapper.find('input')
       expect(input.value).to.eq('hi')
     })
     it('接受 placeholder', () => {
-      vm = new Constructor({propsData: {placeholder: "hi"}}).$mount()
-      const input = vm.$el.querySelector('input')
+      const wrapper = mount(Input, {propsData: {placeholder: 'hi'}})
+      const input = wrapper.find('input')
       expect(input.placeholder).to.eq('hi')
     })
     it('接受 disabled', () => {
-      vm = new Constructor({propsData: {disabled: true}}).$mount()
-      const input = vm.$el.querySelector('input')
+      const wrapper = mount(Input, {propsData: {disabled: true}})
+      const input = wrapper.find('input')
       expect(input.disabled).to.eq(true)
     })
     it('接受 readonly', () => {
-      vm = new Constructor({propsData: {readonly: true}}).$mount()
-      const input = vm.$el.querySelector('input')
+      const wrapper = mount(Input, {propsData: {readonly: true}})
+      const input = wrapper.find('input')
       expect(input.readOnly).to.eq(true)
     })
     it('接受 error', () => {
-      vm = new Constructor({propsData: {error: "error"}}).$mount()
-      const useElement = vm.$el.querySelector('use')
-      expect(useElement.getAttribute('xlink:href')).to.eq('#i-error')
-      const errorMessage = vm.$el.querySelector('.errorMessage')
+      const wrapper = mount(Input, {propsData: {error: 'error'}})
+      const errorMessage = wrapper.find('.errorMessage')
       expect(errorMessage.innerHTML).to.eq('error')
     })
   })
   describe('events', () => {
-    const Constructor = Vue.extend(Input)
-    let vm
-    afterEach(() => {vm.$destroy()})
     it('input,focus,blur,change事件', () => {
       ['input', 'focus', 'blur', 'change'].forEach(eventName => {
-        vm = new Constructor({}).$mount()
+        const wrapper = mount(Input, {})
         const callback = sinon.fake()
-        const input = vm.$el.querySelector('input')
+        const input = wrapper.find('input')
         const event = new Event(eventName)
         Object.defineProperty(event, 'target', {
           value: {value: 'hi'}
         })
-        vm.$on(eventName, callback)
-        input.dispatchEvent(event)
+        const vm = wrapper.vm
+        vm.$on(input, callback)
+        wrapper.find('input').trigger('input')
         expect(callback).to.have.been.calledWith('hi')
       })
     })

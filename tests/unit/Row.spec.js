@@ -15,7 +15,7 @@ Vue.component('c-col', Col)
 Vue.component('c-row', Row)
 
 describe('Row', () => {
-  it('存在.', () => {
+  it('存在', () => {
     expect(Row).exist
   })
   it('接受 gutter 属性', (done) => {

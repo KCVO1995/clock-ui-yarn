@@ -1,10 +1,10 @@
 import sinon from 'sinon'
 import chai, {expect} from 'chai'
-import sinoChai from 'sinon-chai'
+import sinonChai from 'sinon-chai'
 import Vue from 'vue'
 import {mount} from '@vue/test-utils'
 
-chai.use(sinoChai)
+chai.use(sinonChai)
 import Toast from '../../src/components/toast/Toast.vue'
 
 Vue.config.productionTip = false
@@ -14,7 +14,7 @@ describe('Toast', () => {
   it('存在', () => {
     expect(Toast).exist
   })
-  it('接受 autoClose', (done) => {
+  it('接受 autoClose 属性', (done) => {
     const wrapper = mount(Toast, {
       attachToDocument: true,
       propsData: {
@@ -27,7 +27,7 @@ describe('Toast', () => {
       done()
     })
   })
-  it('接受 closeButton`', (done) => {
+  it('接受 closeButton 属性', (done) => {
     const callback = sinon.fake()
     const wrapper = mount(Toast, {
       propsData: {
@@ -45,7 +45,7 @@ describe('Toast', () => {
       done()
     })
   })
-  it('接受 position', () => {
+  it('接受 position 属性', () => {
     const wrapper = mount(Toast, {
       propsData: {
         position: 'middle'

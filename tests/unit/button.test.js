@@ -1,10 +1,10 @@
 import sinon from 'sinon'
 import chai, {expect} from 'chai'
-import sinoChai from 'sinon-chai'
+import sinonChai from 'sinon-chai'
 import Vue from 'vue'
 import {mount} from '@vue/test-utils'
 
-chai.use(sinoChai)
+chai.use(sinonChai)
 import Button from '../../src/components/button/Button'
 
 Vue.config.productionTip = false
