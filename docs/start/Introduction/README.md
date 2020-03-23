@@ -3,8 +3,7 @@ title: '介绍'
 ---
 # 介绍
 
-[![Build Status](https://www.travis-ci.org/KCVO1995/gulu.svg?branch=master)](https://www.travis-ci.org/KCVO1995/gulu)
-
+[![Build Status](https://www.travis-ci.org/KCVO1995/Clock-UI.svg?branch=master)](https://www.travis-ci.org/KCVO1995/Clock-UI)
 
 Clock UI 是一款简单好用的 UI 框架，它基于 [Vue.js](https://vuejs.org/) 搭建，提供了按钮、输入框、栅格布局、弹出信息、分组标签、气泡卡片、折叠面板等多个组件
 
