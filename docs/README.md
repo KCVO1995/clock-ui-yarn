@@ -2,7 +2,7 @@
 home: true
 message: Welcome to my Blog
 actionText: Start →
-actionLink: clock-ui-yarn/start/Introduction
+actionLink: start/Introduction
 features:
 - title: 反馈 - Feedback 
 - title: 效率 - Efficiency
