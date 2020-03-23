@@ -6,8 +6,10 @@ title: 按钮 - Button
 
 ## 基础用法 
 
-
+<ClientOnly>
 <button-button-demo></button-button-demo>
+</ClientOnly>
+
 
 
 ```html
@@ -26,7 +28,9 @@ title: 按钮 - Button
 :::
  
  
+<ClientOnly>
 <button-button-icon></button-button-icon>
+</ClientOnly>
 
 
 ```html
@@ -53,7 +57,9 @@ title: 按钮 - Button
 * 可接受值: `left right`
 ::: 
 
+<ClientOnly>
 <button-button-icon-position></button-button-icon-position>
+</ClientOnly>
 
 ```html
 <c-button icon="left" icon-position="left">按钮</c-button>
@@ -75,7 +81,9 @@ title: 按钮 - Button
 :::
 
 
+<ClientOnly>
 <button-button-loading></button-button-loading>
+</ClientOnly>
 
 
 ```html
@@ -90,7 +98,11 @@ title: 按钮 - Button
 
 以按钮组的方式出现，常用于多项类似操作
 
+<ClientOnly>
 <button-button-group></button-button-group>
+</ClientOnly>
+<ClientOnly>
+</ClientOnly>
 
 
 ```html

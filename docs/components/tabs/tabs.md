@@ -6,7 +6,9 @@ title: 分组标签 -  Tabs
 
 ## 基础用法
 
+<ClientOnly>
 <tabs-tabs-demo></tabs-tabs-demo>
+</ClientOnly>
 
 ```html
 <c-tabs selected="chinese">
@@ -87,7 +89,9 @@ selected
 
 `seleted` 支持 `.sync` 语法，传入一个变量可动态获取 `selected` 实时的值
 
+<ClientOnly>
 <tabs-tabs-selected></tabs-tabs-selected>
+</ClientOnly>
 
 ```html
 <c-tabs :selected.sync="selectedTab">
@@ -114,7 +118,9 @@ disabled
 * 类型: `boolean`
 :::
 
+<ClientOnly>
 <tabs-tabs-disabled></tabs-tabs-disabled>
+</ClientOnly>
 
 通过 `disabled` 属性指定是否禁用选项
 

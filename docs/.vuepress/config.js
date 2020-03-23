@@ -1,14 +1,15 @@
 module.exports = {
-  title: "Clock UI",
-  description: "一个好用的 UI 框架",
-  theme: "vuepress-theme-onen",
+  base: '/clock-ui-yarn/',
+  title: 'Clock UI',
+  description: '一个好用的 UI 框架',
+  theme: 'vuepress-theme-onen',
   themeConfig: {
     avatar: '/avatar.jpg',
     music: '/music.mp3',
     displayAllHeaders: false,
     navbar: [
-      {type: 'home', title: "主页", href: "/"},
-      {type: 'user', title: "博客", href: "https://kcvo.top/"},
+      {type: 'home', title: '主页', href: '/'},
+      {type: 'user', title: '博客', href: 'https://kcvo.top/'},
       {type: 'github', title: "GitHub", href: "https://github.com/KCVO1995/Clock-UI"},
     ],
     menu: [

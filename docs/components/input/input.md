@@ -7,7 +7,9 @@ title: 输入框 - Input
 基础用法
 ---
 
+<ClientOnly>
 <input-input-demo></input-input-demo>
+</ClientOnly>
 
 ```html
 <c-input></c-input>
@@ -23,7 +25,9 @@ value
 * 默认值: `undefined`
 :::
 
+<ClientOnly>
 <input-input-value></input-input-value>
+</ClientOnly>
 
 ```html
 <c-input value="默认内容"></c-input>
@@ -41,7 +45,9 @@ placeholder
 * 默认值: `undefined`
 :::
 
+<ClientOnly>
 <input-input-placeholder></input-input-placeholder>
+</ClientOnly>
 
 ```html
 <c-input placeholder="请输入内容"></c-input>
@@ -60,7 +66,9 @@ disabled
 * 可接受值: `true false` 
 :::
 
+<ClientOnly>
 <input-input-disabled></input-input-disabled>
+</ClientOnly>
 
 ```html
 <c-input disabled placeholder="不可用"></c-input>
@@ -79,7 +87,9 @@ readonly
 * 可接受值: `true false` 
 :::
 
+<ClientOnly>
 <input-input-readonly></input-input-readonly>
+</ClientOnly>
 
 ```html
 <c-input readonly placeholder="只读"></c-input>
@@ -97,7 +107,9 @@ error
 * 默认值: `undefined`
 :::
 
+<ClientOnly>
 <input-input-error></input-input-error>
+</ClientOnly>
 
 ```html
 <c-input error="您输入的信息不符合要求"></c-input>

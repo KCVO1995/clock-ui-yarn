@@ -5,7 +5,9 @@ title: 气泡卡片 - Popover
 
 ## 基础用法 
 
+<ClientOnly>
 <popover-popover-demo></popover-popover-demo>
+</ClientOnly>
 
 ```html
 <c-popover>
@@ -28,7 +30,9 @@ position
 * 可接受值: `top bottom left right`
 :::
 
+<ClientOnly>
 <popover-popover-position></popover-popover-position>
+</ClientOnly>
 
 
 ```html
@@ -66,7 +70,9 @@ position
 trigger
 ---
 
+<ClientOnly>
 <popover-popover-trigger></popover-popover-trigger>
+</ClientOnly>
 
 
 ```html

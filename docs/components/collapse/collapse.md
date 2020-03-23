@@ -7,7 +7,9 @@ title: 折叠面板 - Collapse
 基础用法
 ---
 
+<ClientOnly>
 <collapse-collapse-demo></collapse-collapse-demo>
+</ClientOnly>
 
 ```html
 <c-collapse>
@@ -55,7 +57,9 @@ selected
 * 默认: `[]`
 :::
 
+<ClientOnly>
 <collapse-collapse-selected></collapse-collapse-selected>
+</ClientOnly>
 
 ```html
 <c-collapse :selected="['标题1', '标题2']">
@@ -108,7 +112,9 @@ single
 * 默认: `false`
 :::
 
+<ClientOnly>
 <collapse-collapse-single></collapse-collapse-single>
+</ClientOnly>
 
 ```html
 <c-collapse single>

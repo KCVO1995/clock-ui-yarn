@@ -35,7 +35,7 @@ export default {
 
 
 :::warning
-注意: [弹出信息组件](/components/toast/toast.html)的引入方式有些不同，因为它是以插件方式提供的，详细用法请查阅相关章节
+注意: [弹出信息组件](clock-ui-yarn/components/toast/toast.html)的引入方式有些不同，因为它是以插件方式提供的，详细用法请查阅相关章节
 :::
 
 

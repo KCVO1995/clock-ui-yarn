@@ -7,7 +7,9 @@ sidebarDepth: 2
 基础用法
 ---
 
+<ClientOnly>
 <layout-layout-demo></layout-layout-demo>
+</ClientOnly>
 
 ```html
 <c-layout class="container">
@@ -22,7 +24,9 @@ header、content、footer 组件嵌套在 layout 组件种，实现基础默认�
 含边栏布局
 ---
 
+<ClientOnly>
 <layout-layout-sider></layout-layout-sider>
+</ClientOnly>
 
 ```html
 <c-layout class="container">

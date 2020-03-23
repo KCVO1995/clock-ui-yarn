@@ -16,7 +16,9 @@ Vue.use(CloToast)
 基础用法
 ---
 
+<ClientOnly>
 <toast-toast-demo></toast-toast-demo>
+</ClientOnly>
 
 ```html
 <c-button @click="showToast">弹出信息</c-button>
@@ -52,7 +54,9 @@ message
 * 默认值: `undefined`
 :::
 
+<ClientOnly>
 <toast-toast-message></toast-toast-message>
+</ClientOnly>
 
 ```javascript
 export default {
@@ -83,7 +87,9 @@ autoClose
 * 默认值: `5`
 :::
 
+<ClientOnly>
 <toast-toast-autoClose></toast-toast-autoClose>
+</ClientOnly>
 
 ```javascript
 export default {
@@ -109,7 +115,9 @@ closeButton
 * 类型: `object`
 :::
 
+<ClientOnly>
 <toast-toast-closeButton></toast-toast-closeButton>
+</ClientOnly>
 
 ```javascript
 export default {
@@ -141,7 +149,9 @@ position
 * 接受值: `top middle bottom`
 :::
 
+<ClientOnly>
 <toast-toast-position></toast-toast-position>
+</ClientOnly>
 
 ```javascript
 export default {
