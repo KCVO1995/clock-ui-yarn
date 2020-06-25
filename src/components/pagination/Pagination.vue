@@ -26,10 +26,10 @@
       },
       pagerCount: {
         type: Number,
-        default: 10
+        default: 7
       },
       pageSize: {
-        type: Number,
+        type: [String, Number],
         default: 10
       },
       prevText: {
@@ -49,7 +49,7 @@
     computed: {
       pages() {
         const arr = []
-        for (let i = 1; i <= this.total; i++) {arr.push(i)}
+        for (let i = 1; i <= Math.ceil(this.total / parseInt(this.pageSize)); i++) {arr.push(i)}
         return arr
       },
     },
