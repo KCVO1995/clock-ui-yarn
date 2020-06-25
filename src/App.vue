@@ -1,12 +1,5 @@
 <template>
   <div>
-    <!--  <div style="margin: 100px">-->
-    <!--    <g-collapse :selected-array.sync="selected" single>-->
-    <!--      <g-collapse-item title="标题一">我是可爱的内容一</g-collapse-item>-->
-    <!--      <g-collapse-item title="标题二">我是性感的内容二</g-collapse-item>-->
-    <!--      <g-collapse-item title="标题三">我是妩媚的内容三</g-collapse-item>-->
-    <!--    </g-collapse>-->
-    <!--  </div>-->
     <c-button @click="showToast">xxx</c-button>
     <c-popover>
       <template v-slot:content>
@@ -15,6 +8,7 @@
       <c-button>弹出信息</c-button>
     </c-popover>
     <c-switch v-model="switchValue" inactive-color="#999" active-color="pink" c-width="50" c-height="25" gap="4" duration="0.4" active-text="you" inactive-text="love"/>
+    <c-pagination :total="total" @pageChange="onPageChange" v-model="currentPage"/>
   </div>
 </template>
 
@@ -23,21 +17,26 @@ export default {
   name: 'App',
   data() {
     return {
-      selectedTab: "Europe",
-      selected: ["标题一"],
-      switchValue: true
+      selectedTab: 'Europe',
+      selected: ['标题一'],
+      switchValue: true,
+      total: 10,
+      currentPage: 5
     }
   },
   updated() {
-    console.log(this.switchValue,'123')
+    console.log('当前页', this.currentPage)
   },
   methods: {
     showToast() {
-      this.$toast("我是message", {
+      this.$toast('我是message', {
         autoClose: 500,
-        closeButton: {text: "我知道了", callback: () => {console.log("我知道了")}},
+        closeButton: {text: '我知道了', callback: () => {console.log('我知道了')}},
       })
     },
+    onPageChange() {
+      // console.log('当前页', value)
+    }
   }
 }
 </script>

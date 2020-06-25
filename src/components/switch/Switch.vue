@@ -52,7 +52,7 @@
     },
     data() {
       return {
-        _value: false
+        myValue: false
       }
     },
     computed: {
@@ -72,13 +72,13 @@
 
     },
     created() {
-      this._value = this.value
+      this.myValue = this.value
     },
     methods: {
       onInput() {
         if (this.disabled) return
-        this._value = !this._value
-        this.$emit('input', this._value)
+        this.myValue = !this.myValue
+        this.$emit('input', this.myValue)
       }
     }
   }

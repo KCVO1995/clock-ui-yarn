@@ -19,6 +19,7 @@ import CloCollapse from "./components/collapse/Collapse"
 import CloCollapseItem from "./components/collapse/CollapseItem"
 import CloToast from "./components/toast/Toast"
 import CloSwitch from './components/switch/Switch'
+import CloPagination from './components/pagination/Pagination'
 
 export {
   CloButton,
@@ -41,5 +42,6 @@ export {
   CloCollapse,
   CloCollapseItem,
   CloToast,
-  CloSwitch
+  CloSwitch,
+  CloPagination
 }

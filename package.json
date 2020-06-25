@@ -1,6 +1,6 @@
 {
   "name": "clock-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "一个简单好用的ui",
   "main": "dist/clock-ui.umd.js",
   "repository": "git@github.com:KCVO1995/clock-ui-yarn.git",
@@ -15,7 +15,7 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
-    "core-js": "2",
+    "core-js": "3.6.5",
     "core.js": "^0.4.0",
     "vue": "^2.6.11"
   },
