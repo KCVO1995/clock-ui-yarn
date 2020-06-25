@@ -18,6 +18,7 @@ import CloPopover from "./Popover"
 import CloCollapse from "./components/collapse/Collapse"
 import CloCollapseItem from "./components/collapse/CollapseItem"
 import CloToast from "./components/toast/Toast"
+import CloSwitch from './components/switch/Switch'
 
 export {
   CloButton,
@@ -39,5 +40,6 @@ export {
   CloPopover,
   CloCollapse,
   CloCollapseItem,
-  CloToast
+  CloToast,
+  CloSwitch
 }

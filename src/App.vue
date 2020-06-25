@@ -7,14 +7,6 @@
     <!--      <g-collapse-item title="标题三">我是妩媚的内容三</g-collapse-item>-->
     <!--    </g-collapse>-->
     <!--  </div>-->
-    <c-layout class="container">
-      <c-sider class="sider">sider</c-sider>
-      <c-layout>
-        <c-header class="header">header</c-header>
-        <c-content class="content">content</c-content>
-        <c-footer class="footer">footer</c-footer>
-      </c-layout>
-    </c-layout>
     <c-button @click="showToast">xxx</c-button>
     <c-popover>
       <template v-slot:content>
@@ -22,6 +14,7 @@
       </template>
       <c-button>弹出信息</c-button>
     </c-popover>
+    <c-switch v-model="switchValue" inactive-color="#999" active-color="pink" c-width="50" c-height="25" gap="4" duration="0.4" active-text="you" inactive-text="love"/>
   </div>
 </template>
 
@@ -31,8 +24,12 @@ export default {
   data() {
     return {
       selectedTab: "Europe",
-      selected: ["标题一"]
+      selected: ["标题一"],
+      switchValue: true
     }
+  },
+  updated() {
+    console.log(this.switchValue,'123')
   },
   methods: {
     showToast() {

@@ -19,6 +19,7 @@ import Popover from "./Popover"
 import Collapse from "./components/collapse/Collapse"
 import CollapseItem from "./components/collapse/CollapseItem"
 import plugin from "./components/toast/Toast"
+import Switch from "./components/switch/Switch"
 
 Vue.component("c-button", Button)
 Vue.component("c-button-group", ButtonGroup)
@@ -38,6 +39,7 @@ Vue.component("g-tabs-pane", TabsPane)
 Vue.component("c-popover", Popover)
 Vue.component("g-collapse", Collapse)
 Vue.component("g-collapse-item", CollapseItem)
+Vue.component("c-switch", Switch)
 Vue.use(plugin)
 
 Vue.config.productionTip = false

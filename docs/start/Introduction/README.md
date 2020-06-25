@@ -12,4 +12,4 @@ Clock UI 是一款简单好用的 UI 框架，它基于 [Vue.js](https://vuejs.o
 
 您可以查看 [GitHub](https://github.com/KCVO1995/clock-ui-yarn) 上的源代码，或者浏览一下我的 [这篇博客]('')，里面记录着框架的设计思路以及如何解决各种难题的
 
-话不多说，你可以 [直接体验一下这套框架](start/install/install.html)，这篇文档会引导你一步一步地操作
+话不多说，你可以 [直接体验一下这套框架](/start/install/install.html)，这篇文档会引导你一步一步地操作
