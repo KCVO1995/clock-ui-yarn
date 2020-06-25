@@ -1,10 +1,12 @@
 <template>
   <div class="global">
-    <button class="prev">上一页</button>
+    <button :class="{'prev':true,'exceeded': exceededMin}" @click="onPrevNext('-')">{{prevText ? prevText : '上一页'}}
+    </button>
     <ul class="pager-container">
       <li class="pager" v-for="page in pages" :key="page" :class="{'selected': page === myCurrentPage}">{{page}}</li>
     </ul>
-    <button class="next">下一页</button>
+    <button :class="{'next': true, 'exceeded': exceededMax}" @click="onPrevNext('+')">{{nextText ? nextText : '下一页'}}
+    </button>
   </div>
 </template>
 
@@ -14,11 +16,9 @@
     props: {
       value: {
         type: Number,
-        default: 1,
       },
       defaultPage: {
         type: Number,
-        default: 1
       },
       total: {
         type: Number,
@@ -31,11 +31,19 @@
       pageSize: {
         type: Number,
         default: 10
+      },
+      prevText: {
+        type: String
+      },
+      nextText: {
+        type: String
       }
     },
     data() {
       return {
-        myCurrentPage: 1
+        myCurrentPage: 1,
+        exceededMin: false,
+        exceededMax: false
       }
     },
     computed: {
@@ -66,6 +74,7 @@
         } else {
           throw new Error('请传入 current-page 或 default-page')
         }
+        this.initButtonStatus(this.myCurrentPage)
       },
       initListener() {
         const pagerContainer = document.querySelector('.pager-container')
@@ -81,8 +90,19 @@
       changePage(value) {
         if (value === this.myCurrentPage) return
         this.myCurrentPage = value
+        this.initButtonStatus(value)
         this.$emit('input', this.myCurrentPage)
         this.$emit('pageChange', this.myCurrentPage)
+      },
+      onPrevNext(method) {
+        const value = method === '+' ? this.myCurrentPage + 1 : this.myCurrentPage - 1
+        if (value === 1 || value === this.total) this.changePage(value)
+        this.initButtonStatus(value)
+        !this.exceededMin && !this.exceededMax && this.changePage(value)
+      },
+      initButtonStatus(value) {
+        this.exceededMin = value <= 1
+        this.exceededMax = value >= this.total
       }
     }
   }
@@ -92,6 +112,15 @@
   $margin: 5px;
   .global {
     display: flex;
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      &.exceeded {
+        cursor: not-allowed;
+        color: #ddd;
+      }
+    }
     > ul {
       display: flex;
       list-style: none;

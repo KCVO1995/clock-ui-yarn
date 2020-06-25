@@ -7,8 +7,10 @@
       </template>
       <c-button>弹出信息</c-button>
     </c-popover>
-    <c-switch v-model="switchValue" inactive-color="#999" active-color="pink" c-width="50" c-height="25" gap="4" duration="0.4" active-text="you" inactive-text="love"/>
-    <c-pagination :total="total" @pageChange="onPageChange" v-model="currentPage"/>
+    <c-switch v-model="switchValue" inactive-color="#999" active-color="pink" c-width="50" c-height="25" gap="4"
+              duration="0.4" active-text="you" inactive-text="love"/>
+    <c-pagination :total="total_1" v-model="currentPage" prev-text="fuck" next-text="you"/>
+    <c-pagination :total="total_2" @pageChange="onPageChange" :default-page="5"/>
   </div>
 </template>
 
@@ -20,12 +22,13 @@ export default {
       selectedTab: 'Europe',
       selected: ['标题一'],
       switchValue: true,
-      total: 10,
+      total_1: 10,
+      total_2: 10,
       currentPage: 1
     }
   },
   updated() {
-    console.log('当前页', this.currentPage)
+    console.log('A当前页', this.currentPage)
   },
   methods: {
     showToast() {
@@ -34,8 +37,8 @@ export default {
         closeButton: {text: '我知道了', callback: () => {console.log('我知道了')}},
       })
     },
-    onPageChange() {
-      // console.log('当前页', value)
+    onPageChange(value) {
+      console.log('B当前页', value)
     }
   }
 }
