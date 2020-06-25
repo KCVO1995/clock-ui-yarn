@@ -26,6 +26,7 @@ module.exports = {
         link: '/components',
         children: [
           {text: '按钮-Button', link: '/button'},
+          {text: '开关-Switch', link: '/switch'},
           {text: '输入框-Input', link: '/input'},
           {text: '栅格布局-Grid', link: '/grid'},
           {text: '默认布局-Layout', link: '/layout'},

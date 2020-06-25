@@ -1,9 +1,9 @@
 <template>
   <label class="container-switch">
     <input :value="value" @input="onInput" type="checkbox" class="switch-input"/>
-    <span v-if="inactiveText" class="switch-inactive" :style="{fontSize: cHeight * 0.7 + 'px'}">{{inactiveText}}</span>
+    <span v-if="inactiveText" class="switch-inactive" :style="{fontSize: sHeight * 0.7 + 'px'}">{{inactiveText}}</span>
     <span class="switch" :style="myStyle" :class="{'checked': value}"/>
-    <span v-if="activeText" class="switch-active" :style="{color: value ? activeColor : '#333',fontSize: cHeight * 0.7 + 'px'}">{{activeText}}</span>
+    <span v-if="activeText" class="switch-active" :style="{color: value ? activeColor : '#333',fontSize: sHeight * 0.7 + 'px'}">{{activeText}}</span>
   </label>
 </template>
 
@@ -17,23 +17,23 @@
       },
       inactiveColor: {
         type: String,
-        default: '#333'
+        default: '#C0CCDA'
       },
       activeColor: {
         type: String,
-        default: 'green'
+        default: '#6cb88b'
       },
-      cWidth: {
+      sWidth: {
         type: String,
-        default: '100'
+        default: '40'
       },
-      cHeight: {
+      sHeight: {
         type: String,
-        default: '50'
+        default: '20'
       },
       gap: {
         type: String,
-        default: '10'
+        default: '2'
       },
       duration: {
         type: String,
@@ -59,13 +59,13 @@
       myStyle() {
         return {
           background: this.value && !this.disabled ? this.activeColor : this.inactiveColor,
-          width: this.cWidth + 'px',
-          height: this.cHeight + 'px',
-          borderRadius: this.cHeight / 2 + 'px',
+          width: this.sWidth + 'px',
+          height: this.sHeight + 'px',
+          borderRadius: this.sHeight / 2 + 'px',
           cursor: this.disabled ? 'not-allowed' : this.value ? 'grabbing' : 'grab',
-          '--width': this.cHeight - this.gap * 2 + 'px',
+          '--width': this.sHeight - this.gap * 2 + 'px',
           '--top': this.gap + 'px',
-          '--distance': this.cWidth - this.cHeight + 'px',
+          '--distance': this.sWidth - this.sHeight + 'px',
           '--duration': this.duration + 's',
         }
       }
@@ -101,9 +101,7 @@
     height: 0;
   }
   .switch {
-    display: block;
-    width: 100px;
-    height: 50px;
+    display: inline-block;
     border-radius: 25px;
     position: relative;
     transition: var(--duration) all;
