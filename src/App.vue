@@ -21,7 +21,7 @@ export default {
       selected: ['标题一'],
       switchValue: true,
       total: 10,
-      currentPage: 5
+      currentPage: 1
     }
   },
   updated() {

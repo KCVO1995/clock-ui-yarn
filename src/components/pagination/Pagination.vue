@@ -41,10 +41,13 @@
     computed: {
       pages() {
         const arr = []
-        for (let i = 1; i <= this.total; i++) {
-          arr.push(i)
-        }
+        for (let i = 1; i <= this.total; i++) {arr.push(i)}
         return arr
+      },
+    },
+    watch: {
+      value(val) {
+        this.myCurrentPage = val
       }
     },
     mounted() {
