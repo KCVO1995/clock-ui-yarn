@@ -1,5 +1,5 @@
 <template>
-  <div class="global">
+  <div class="global" v-if="total > pageSize">
     <button :class="{'prev':true,'exceeded': exceededMin}" @click="onPrevNext('-')">{{prevText ? prevText : '上一页'}}
     </button>
     <ul class="pager-container">
@@ -101,7 +101,7 @@
     methods: {
       init() {
         this.initCurrentPage()
-        this.initListener()
+        if (this.total > this.pageSize) this.initListener()
       },
       initCurrentPage() {
         if (this.value) {
