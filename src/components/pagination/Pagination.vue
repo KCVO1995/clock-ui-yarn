@@ -72,23 +72,26 @@
         const arr = []
         this.pagers = Math.ceil(this.total / this.pageSize)
         for (let i = 1; i <= this.pagers; i++) {arr.push(i)}
-        if (this.pagers > 7) {
-          if (this.myCurrentPage < 5) {
-            arr.splice(5, arr.length - 6, 'right')
-          } else if (5 <= this.myCurrentPage && this.myCurrentPage < this.pagers - 3) {
-            arr.splice(1, this.myCurrentPage - 4, 'left')
-            const start = arr.indexOf(this.myCurrentPage) + 3
+        const oneSide = (this.pagerCount - 1) / 2
+        console.log(oneSide)
+        if (this.pagers > this.pagerCount) {
+          if (this.myCurrentPage < oneSide + 2) {
+            arr.splice(this.pagerCount - 1, arr.length - this.pagerCount, 'right')
+          } else if (oneSide + 2 <= this.myCurrentPage && this.myCurrentPage < this.pagers - oneSide) {
+            console.log('中间', arr)
+            arr.splice(1, this.myCurrentPage - oneSide - 1, 'left')
+            const start = arr.indexOf(this.myCurrentPage) + oneSide
             arr.splice(start, arr.length - start - 1, 'right')
           } else {
-            arr.splice(1, this.pagers - 7, 'left')
+            arr.splice(1, this.pagers - this.pagerCount, 'left')
           }
+          console.log(arr)
         }
         return arr
       },
     },
     watch: {
       value(val) {
-        console.log('xx', val)
         this.myCurrentPage = val
       }
     },
@@ -124,7 +127,6 @@
       },
       changePage(value) {
         if (value === this.myCurrentPage) return
-        console.log(123, value)
         this.myCurrentPage = value
         this.initButtonStatus(value)
         this.$emit('input', this.myCurrentPage)
@@ -143,7 +145,7 @@
       skip(e, method) {
         // 精髓
         e.stopPropagation()
-        let value = method === '+' ? this.myCurrentPage + 5 : this.myCurrentPage - 5
+        let value = method === '+' ? this.myCurrentPage + this.pagerCount - 2 : this.myCurrentPage - this.pagerCount + 2
         if (value < 1) value = 1
         if (value > this.pagers) value = this.pagers
         if (value === 1 || value === this.pagers) this.changePage(value)
