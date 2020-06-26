@@ -3,7 +3,17 @@
     <button :class="{'prev':true,'exceeded': exceededMin}" @click="onPrevNext('-')">{{prevText ? prevText : '上一页'}}
     </button>
     <ul class="pager-container">
-      <li class="pager" v-for="page in pages" :key="page" :class="{'selected': page === myCurrentPage}">{{page}}</li>
+      <li class="pager" v-for="(page,index) in pages" :key="index">
+        <div v-if="page === 'left'" class="ellipsis-container">
+          <div class="arrow">《</div>
+          <div class="ellipsis">...</div>
+        </div>
+        <div v-if="typeof page === 'number'" :class="{'pager': true, 'selected': page === myCurrentPage}">{{page}}</div>
+        <div v-if="page === 'right'" class="ellipsis-container">
+          <div class="arrow">》</div>
+          <div class="ellipsis">...</div>
+        </div>
+      </li>
     </ul>
     <button :class="{'next': true, 'exceeded': exceededMax}" @click="onPrevNext('+')">{{nextText ? nextText : '下一页'}}
     </button>
@@ -43,13 +53,26 @@
       return {
         myCurrentPage: 1,
         exceededMin: false,
-        exceededMax: false
+        exceededMax: false,
+        pagers: 0
       }
     },
     computed: {
       pages() {
         const arr = []
-        for (let i = 1; i <= Math.ceil(this.total / parseInt(this.pageSize)); i++) {arr.push(i)}
+        this.pagers = Math.ceil(this.total / this.pageSize)
+        for (let i = 1; i <= this.pagers; i++) {arr.push(i)}
+        if (this.pagers > 7) {
+          if (this.myCurrentPage < 5) {
+            arr.splice(5, arr.length - 6, 'right')
+          } else if (5 <= this.myCurrentPage && this.myCurrentPage < this.pagers - 3) {
+            arr.splice(1, this.myCurrentPage - 4, 'left')
+            const start = arr.indexOf(this.myCurrentPage) + 3
+            arr.splice(start, arr.length - start - 1, 'right')
+          } else {
+            arr.splice(1, this.pagers - 7, 'left')
+          }
+        }
         return arr
       },
     },
@@ -82,7 +105,7 @@
           // 兼容 IOS 没有 e.path
           const path = e.path || (e.composedPath && e.composedPath())
           let pager = path.find(el => el.classList && el.classList.contains('pager'))
-          if (pager) {
+          if (pager && !Number.isNaN(parseInt(pager.innerHTML))) {
             this.changePage(parseInt(pager.innerHTML))
           }
         })
@@ -96,13 +119,13 @@
       },
       onPrevNext(method) {
         const value = method === '+' ? this.myCurrentPage + 1 : this.myCurrentPage - 1
-        if (value === 1 || value === this.total) this.changePage(value)
+        if (value === 1 || value === this.pagers) this.changePage(value)
         this.initButtonStatus(value)
         !this.exceededMin && !this.exceededMax && this.changePage(value)
       },
       initButtonStatus(value) {
         this.exceededMin = value <= 1
-        this.exceededMax = value >= this.total
+        this.exceededMax = value >= this.pagers
       }
     }
   }
@@ -125,21 +148,45 @@
       display: flex;
       list-style: none;
       > li {
-        border: 1px solid #333;
         width: 30px;
         height: 30px;
         margin-right: $margin;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         list-style: none;
         cursor: pointer;
+        > .ellipsis-container {
+          width: 100%;
+          height: 100%;
+          font-weight: bolder;
+          > .ellipsis {
+            display: block;
+          }
+          > .arrow {
+            display: none;
+          }
+          &:hover {
+            > .ellipsis {
+              display: none;
+            }
+            > .arrow {
+              display: block;
+            }
+          }
+        }
+        > .pager {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #333;
+          width: 100%;
+          height: 100%;
+          &.selected {
+            border: 1px solid red;
+          }
+        }
         &:first-child {
           margin-left: $margin;
         }
-        &.selected {
-          border: 1px solid red;
-        }
+
       }
     }
   }
