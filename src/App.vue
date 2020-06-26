@@ -9,7 +9,8 @@
     </c-popover>
     <c-switch v-model="switchValue" inactive-color="#999" active-color="pink" c-width="50" c-height="25" gap="4"
               duration="0.4" active-text="you" inactive-text="love"/>
-    <c-pagination :total="total_1" v-model="currentPage" page-size="8"/>
+    <!--    <c-pagination :total="total_1" v-model="currentPage" page-size="8"/>-->
+    <c-pagination :total="total_2" @pageChange="onPageChange" :default-page="5"/>
   </div>
 </template>
 
@@ -21,8 +22,8 @@ export default {
       selectedTab: 'Europe',
       selected: ['标题一'],
       switchValue: true,
-      total_1: 108,
-      total_2: 80,
+      total_1: 50,
+      total_2: 130,
       currentPage: 1
     }
   },

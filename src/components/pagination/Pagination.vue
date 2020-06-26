@@ -3,13 +3,13 @@
     <button :class="{'prev':true,'exceeded': exceededMin}" @click="onPrevNext('-')">{{prevText ? prevText : '上一页'}}
     </button>
     <ul class="pager-container">
-      <li class="pager" v-for="(page,index) in pages" :key="index">
-        <div v-if="page === 'left'" class="ellipsis-container">
+      <li v-for="(page,index) in pages" :key="index">
+        <div @click="skip($event,'-')" v-if="page === 'left'" class="ellipsis-container">
           <div class="arrow">《</div>
           <div class="ellipsis">...</div>
         </div>
         <div v-if="typeof page === 'number'" :class="{'pager': true, 'selected': page === myCurrentPage}">{{page}}</div>
-        <div v-if="page === 'right'" class="ellipsis-container">
+        <div @click="skip($event,'+')" v-if="page === 'right'" class="ellipsis-container">
           <div class="arrow">》</div>
           <div class="ellipsis">...</div>
         </div>
@@ -78,6 +78,7 @@
     },
     watch: {
       value(val) {
+        console.log('xx', val)
         this.myCurrentPage = val
       }
     },
@@ -106,12 +107,14 @@
           const path = e.path || (e.composedPath && e.composedPath())
           let pager = path.find(el => el.classList && el.classList.contains('pager'))
           if (pager && !Number.isNaN(parseInt(pager.innerHTML))) {
+            console.log('avx', parseInt(pager.innerHTML))
             this.changePage(parseInt(pager.innerHTML))
           }
         })
       },
       changePage(value) {
         if (value === this.myCurrentPage) return
+        console.log(123)
         this.myCurrentPage = value
         this.initButtonStatus(value)
         this.$emit('input', this.myCurrentPage)
@@ -126,6 +129,16 @@
       initButtonStatus(value) {
         this.exceededMin = value <= 1
         this.exceededMax = value >= this.pagers
+      },
+      skip(e, method) {
+        // 精髓
+        e.stopPropagation()
+        let value = method === '+' ? this.myCurrentPage + 5 : this.myCurrentPage - 5
+        if (value < 1) value = 1
+        if (value > this.pagers) value = this.pagers
+        if (value === 1 || value === this.pagers) this.changePage(value)
+        this.initButtonStatus(value)
+        !this.exceededMin && !this.exceededMax && this.changePage(value)
       }
     }
   }
