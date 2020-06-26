@@ -17,6 +17,12 @@
     </ul>
     <button :class="{'next': true, 'exceeded': exceededMax}" @click="onPrevNext('+')">{{nextText ? nextText : '下一页'}}
     </button>
+    <label v-if="jumper" class="jumper-container">
+      <span>跳至</span>
+      <input type="text" @change="onChange"/>
+      <span>页</span>
+    </label>
+
   </div>
 </template>
 
@@ -47,6 +53,10 @@
       },
       nextText: {
         type: String
+      },
+      jumper: {
+        type: Boolean,
+        default: false
       }
     },
     data() {
@@ -114,7 +124,7 @@
       },
       changePage(value) {
         if (value === this.myCurrentPage) return
-        console.log(123)
+        console.log(123, value)
         this.myCurrentPage = value
         this.initButtonStatus(value)
         this.$emit('input', this.myCurrentPage)
@@ -139,6 +149,16 @@
         if (value === 1 || value === this.pagers) this.changePage(value)
         this.initButtonStatus(value)
         !this.exceededMin && !this.exceededMax && this.changePage(value)
+      },
+      onChange(e) {
+        let {target: {value}} = e
+        value = parseInt(value)
+        if (!Number.isNaN(value)) {
+          console.log(!Number.isNaN(value))
+          if (value < 1) value = 1
+          if (value > this.pagers) value = this.pagers
+          this.changePage(value)
+        }
       }
     }
   }
@@ -146,6 +166,7 @@
 
 <style lang='scss' scoped>
   $margin: 5px;
+  $height: 30px;
   .global {
     display: flex;
     button {
@@ -161,8 +182,8 @@
       display: flex;
       list-style: none;
       > li {
-        width: 30px;
-        height: 30px;
+        width: $height;
+        height: $height;
         margin-right: $margin;
         list-style: none;
         cursor: pointer;
@@ -200,6 +221,18 @@
           margin-left: $margin;
         }
 
+      }
+    }
+    > .jumper-container {
+      margin-left: 20px;
+      display: flex;
+      align-items: center;
+      height: $height;
+      > input {
+        margin: 0 15px;
+        padding: 5px;
+        height: 100%;
+        width: 40px;
       }
     }
   }
