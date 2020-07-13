@@ -1,16 +1,16 @@
 <template>
-  <div class="global" v-if="total > pageSize">
+  <div class="global" v-if="total > pageSize" :style="{'--color': buttonColor}">
     <button :class="{'prev':true,'exceeded': exceededMin}" @click="onPrevNext('-')">{{prevText ? prevText : '上一页'}}
     </button>
     <ul class="pager-container">
       <li v-for="(page,index) in pages" :key="index">
         <div @click="skip($event,'-')" v-if="page === 'left'" class="ellipsis-container">
-          <div class="arrow">《</div>
+          <div class="arrow left">《</div>
           <div class="ellipsis">...</div>
         </div>
         <div v-if="typeof page === 'number'" :class="{'pager': true, 'selected': page === myCurrentPage}">{{page}}</div>
         <div @click="skip($event,'+')" v-if="page === 'right'" class="ellipsis-container">
-          <div class="arrow">》</div>
+          <div class="arrow right">》</div>
           <div class="ellipsis">...</div>
         </div>
       </li>
@@ -22,7 +22,6 @@
       <input type="text" @change="onChange"/>
       <span>页</span>
     </label>
-
   </div>
 </template>
 
@@ -57,6 +56,10 @@
       jumper: {
         type: Boolean,
         default: false
+      },
+      buttonColor: {
+        type: String,
+        default: '#75daad'
       }
     },
     data() {
@@ -170,11 +173,20 @@
   $margin: 5px;
   $height: 30px;
   .global {
-    display: flex;
+    border: 1px solid #ddd;
+    display: inline-flex;
+    border-radius: 5px;
+    color: var(--color);
     button {
       background: none;
       border: none;
       cursor: pointer;
+      padding: 0 10px;
+      color: var(--color);
+      &:focus {
+        border: none;
+        outline: none;
+      }
       &.exceeded {
         cursor: not-allowed;
         color: #ddd;
@@ -184,15 +196,23 @@
       display: flex;
       list-style: none;
       > li {
-        width: $height;
+        min-width: $height;
         height: $height;
-        margin-right: $margin;
         list-style: none;
         cursor: pointer;
+        border-left: 1px solid #ddd;
+        &:last-child {
+          border-right: 1px solid #ddd;
+        }
         > .ellipsis-container {
           width: 100%;
           height: 100%;
+          text-align: center;
+          color: #999;
           font-weight: bolder;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           > .ellipsis {
             display: block;
           }
@@ -205,24 +225,27 @@
             }
             > .arrow {
               display: block;
+              &.right {
+                transform: translateX(5px);
+              }
+              &.left {
+                transform: translateX(-5px);
+              }
             }
           }
         }
         > .pager {
+          padding: 0 5px;
           display: flex;
           justify-content: center;
           align-items: center;
-          border: 1px solid #333;
           width: 100%;
           height: 100%;
           &.selected {
-            border: 1px solid red;
+            background: var(--color);
+            color: white;
           }
         }
-        &:first-child {
-          margin-left: $margin;
-        }
-
       }
     }
     > .jumper-container {
