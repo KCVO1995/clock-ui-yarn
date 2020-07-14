@@ -15,7 +15,7 @@
       },
       volumeSize: {
         type: String,
-        default: 'big',
+        default: 'normal',
         validator: function (value) {
           return ['small', 'normal', 'big'].indexOf(value) !== -1
         }
