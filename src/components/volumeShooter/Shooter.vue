@@ -1,7 +1,7 @@
 <template>
     <div class="shooter">
         <svg id="svg" width="100%" height="100%" version="1.1">
-            <path fill="transparent" stroke="#888888" stroke-width="1" class="path"/>
+            <path fill="transparent" stroke="transparent" stroke-width="1" class="path"/>
         </svg>
 
         <div class="ball"></div>
@@ -15,33 +15,46 @@
     mounted() {
       window.run1 = this.run
     },
+    props: {
+      volume: {
+        type: Number,
+        default: 80
+      }
+    },
     computed: {
       startY() {
-        return 10
+        return 50 - Math.tan(45) * 30
       },
-      volume() {
-        return 100
-      }
     },
     methods: {
       run() {
+        console.log(this.startY)
         const svg = document.querySelector('#svg')
         const path = svg.querySelector('path')
         const ball = document.querySelector('.ball')
-        const pathStr = 'M0 ' + this.startY + ' Q' + this.volume / 2 + ' 0 ' + this.volume + ' ' + '25';
+        const pathStr = `M0 ${this.startY} Q ${this.volume} -${this.volume / 2} ${this.volume * 2} 25`;
         path.setAttribute('d', pathStr);
         ball.style.offsetPath = 'path("' + pathStr + '")';
         ball.classList.add('move')
+        setTimeout(() => {
+          this.reset()
+        }, 1500)
+      },
+      reset() {
+        console.log(11)
+        // const ball = document.querySelector('.ball')
+        // ball.classList.remove('move')
       }
+
     }
   }
 </script>
 
 <style lang="scss" scoped>
     .shooter {
+        margin-left: 30px;
         height: 50px;
         width: 200px;
-        border: 1px solid red;
         position: relative;
 
         > .line {
@@ -58,7 +71,6 @@
         svg {
             display: block;
             position: absolute;
-            border: 1px solid #000;
         }
 
         path {
@@ -72,7 +84,7 @@
             border-radius: 50%;
         }
         .ball.move {
-            animation: move-ball 2s forwards;
+            animation: move-ball 1.5s forwards;
             animation-iteration-count: 1;
         }
 

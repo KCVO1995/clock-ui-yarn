@@ -58,5 +58,6 @@
         border: 1px solid red;
         padding: 50px;
         display: flex;
+        align-items: center;
     }
 </style>
