@@ -12,13 +12,10 @@
 <script>
   export default {
     name: "Shooter",
-    mounted() {
-      window.run1 = this.run
-    },
     props: {
       volume: {
         type: Number,
-        default: 80
+        default: 25
       }
     },
     computed: {
@@ -26,26 +23,24 @@
         return 50 - Math.tan(45) * 30
       },
     },
+    watch: {
+      volume() {
+        this.run()
+      }
+    },
     methods: {
       run() {
-        console.log(this.startY)
         const svg = document.querySelector('#svg')
         const path = svg.querySelector('path')
         const ball = document.querySelector('.ball')
         const pathStr = `M0 ${this.startY} Q ${this.volume} -${this.volume / 2} ${this.volume * 2} 25`;
         path.setAttribute('d', pathStr);
         ball.style.offsetPath = 'path("' + pathStr + '")';
-        ball.classList.add('move')
+        ball.classList.remove('move')
         setTimeout(() => {
-          this.reset()
-        }, 1500)
+          ball.classList.add('move')
+        }, 100)
       },
-      reset() {
-        console.log(11)
-        // const ball = document.querySelector('.ball')
-        // ball.classList.remove('move')
-      }
-
     }
   }
 </script>

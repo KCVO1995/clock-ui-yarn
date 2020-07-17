@@ -1,7 +1,7 @@
 <template>
     <div class="global" @mousedown="toggle" @mouseup="toggle">
         <Volume :color="volumeColor" :volume="volume" :increasing="increasing" :size="volumeSize"/>
-        <shooter ></shooter>
+        <shooter :volume="value" ></shooter>
     </div>
 </template>
 
@@ -25,6 +25,7 @@
     },
     watch: {
       increasing(val) {
+        if(!val) this.value = this.volume
         this.setVolume(val)
       }
     },
