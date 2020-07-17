@@ -1,11 +1,13 @@
 <template>
     <div class="global" @mousedown="toggle" @mouseup="toggle">
         <Volume :color="volumeColor" :volume="volume" :increasing="increasing" :size="volumeSize"/>
+        <shooter ></shooter>
     </div>
 </template>
 
 <script>
   import Volume from "./Volume";
+  import Shooter from "./Shooter";
 
   export default {
     props: {
@@ -29,6 +31,7 @@
     data() {
       return {
         volume: 0,
+        value: 0,
         volumeSpeed: 1,
         increasing: false
       }
@@ -41,12 +44,12 @@
         this.increasing = !this.increasing
       },
       setVolume(signal) {
-        this.volume = signal ? this.volume + this.volumeSpeed : this.volume - this.volumeSpeed
+        this.volume = signal ? this.volume + this.volumeSpeed : 0
         const animation = window.requestAnimationFrame(() => { this.setVolume(signal) })
         if (this.increasing && this.volume === 100 || !this.increasing && this.volume === 0 || signal !== this.increasing) window.cancelAnimationFrame(animation)
       }
     },
-    components: {Volume},
+    components: {Shooter, Volume},
   }
 </script>
 
@@ -54,5 +57,6 @@
     .global {
         border: 1px solid red;
         padding: 50px;
+        display: flex;
     }
 </style>
