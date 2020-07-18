@@ -51,7 +51,7 @@
 <style scoped>
     .icon {
         vertical-align: -0.15em;
-        fill: #999;
+        fill: #ccc;
         cursor: pointer;
         overflow: hidden;
     }

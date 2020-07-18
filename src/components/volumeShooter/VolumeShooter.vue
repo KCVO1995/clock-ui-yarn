@@ -1,7 +1,7 @@
 <template>
     <div class="global" @mousedown="toggle" @mouseup="toggle">
-        <Volume :color="volumeColor" :volume="volume" :increasing="increasing" :size="volumeSize"/>
-        <shooter :volume="value" ></shooter>
+        <Volume :color="volumeColor" :volume="volume" :increasing="increasing" :size="size"/>
+        <shooter :volume="value" :size="size"></shooter>
     </div>
 </template>
 
@@ -13,9 +13,9 @@
     props: {
       volumeColor: {
         type: String,
-        default: 'red'
+        default: '#0091ff'
       },
-      volumeSize: {
+      size: {
         type: String,
         default: 'normal',
         validator: function (value) {
