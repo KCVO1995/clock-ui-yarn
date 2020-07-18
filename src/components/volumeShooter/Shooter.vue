@@ -4,7 +4,7 @@
             <path fill="transparent" stroke="transparent" stroke-width="1" class="path"/>
         </svg>
 
-        <div class="ball" :style="{width: sizeToShake[size] + 'px', height: sizeToShake[size] + 'px'}"></div>
+        <div class="ball" :style="{width: sizeToShake[size] + 'px', height: sizeToShake[size] + 'px', background: color}"></div>
         <div class="line" :style="{height: sizeToThickness[size] + 'px'}"></div>
     </div>
 </template>
@@ -19,6 +19,14 @@
       },
       size: {
         type: String,
+        required: true
+      },
+      color: {
+        type: String,
+        required: true
+      },
+      increasing: {
+        type: Boolean,
         required: true
       }
     },
@@ -45,6 +53,14 @@
     watch: {
       volume() {
         this.run()
+      },
+      increasing(val) {
+        const ball = document.querySelector('.ball')
+        if(val) {
+          ball.classList.add('hide')
+        } else {
+          ball.classList.remove('hide')
+        }
       }
     },
     data() {
@@ -96,7 +112,6 @@
 
 <style lang="scss" scoped>
     .shooter {
-        border: 1px solid red;
         position: relative;
         > .line {
             position: absolute;
@@ -122,7 +137,6 @@
         .ball {
             width: 12px;
             height: 12px;
-            background-color: #0091ff;
             border-radius: 50%;
             z-index: 9999;
         }
@@ -130,6 +144,9 @@
         .ball.move {
             animation: move-ball .5s forwards;
             animation-iteration-count: 1;
+        }
+        .ball.hide {
+            opacity: 0;
         }
 
         @keyframes move-ball {

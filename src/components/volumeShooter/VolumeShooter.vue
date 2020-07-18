@@ -1,7 +1,7 @@
 <template>
     <div class="global" @mousedown="toggle" @mouseup="toggle">
-        <Volume :color="volumeColor" :volume="volume" :increasing="increasing" :size="size"/>
-        <shooter :volume="value" :size="size"></shooter>
+        <Volume :color="color" :volume="volume" :increasing="increasing" :size="size"/>
+        <shooter :volume="value" :size="size" :color="color" :increasing="increasing"/>
     </div>
 </template>
 
@@ -11,7 +11,7 @@
 
   export default {
     props: {
-      volumeColor: {
+      color: {
         type: String,
         default: '#0091ff'
       },

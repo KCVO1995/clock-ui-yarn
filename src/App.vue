@@ -10,7 +10,7 @@
     <c-switch v-model="switchValue" inactive-color="#999" active-color="pink" c-width="50" c-height="25" gap="4"
               duration="0.4" active-text="you" inactive-text="love"/>
     <c-pagination :total="total_2" @pageChange="onPageChange" :default-page="2" :pager-count="9" jumper/>
-    <c-volume-shooter size="normal"/>
+    <c-volume-shooter size="normal" color="red"/>
   </div>
 </template>
 
