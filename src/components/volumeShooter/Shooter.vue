@@ -1,7 +1,7 @@
 <template>
     <div class="shooter" :style="{width: sizeToLength[size] + 'px',height: sizeToHeight[size] + 'px', marginLeft: sizeToOffset[size] + 'px'}">
-        <svg id="svg" width="100%" height="100%" version="1.1">
-            <path fill="transparent" stroke="transparent" stroke-width="1" class="path"/>
+        <svg id="svg" width="100%" height="100%">
+            <path fill="transparent" stroke="transparent" stroke-width="1" class="path" />
         </svg>
 
         <div class="ball" :style="{width: sizeToShake[size] + 'px', height: sizeToShake[size] + 'px', background: color}"></div>
@@ -42,7 +42,6 @@
         return this.sizeToHeight[this.size] / 2
       },
       middleX() {
-        console.log(this.endX / 2)
         return this.endX / 2
       },
       middleY() {
@@ -92,20 +91,28 @@
         },
       }
     },
+    mounted() {
+      this.reset()
+    },
     methods: {
       run() {
         const svg = document.querySelector('#svg')
         const path = svg.querySelector('path')
         const ball = document.querySelector('.ball')
+        ball.classList.remove('reset')
+        ball.classList.remove('move')
         // console.log(this.startY, 'startY', this.endX,'endX', this.endY, 'endY' ,this.middleX, 'middleX' ,this.middleY, 'middleY')
         const pathStr = `M0 ${this.startY} Q ${this.middleX} ${this.middleY} ${this.endX} ${this.endY}`;
         path.setAttribute('d', pathStr);
         ball.style.offsetPath = 'path("' + pathStr + '")';
-        ball.classList.remove('move')
         setTimeout(() => {
           ball.classList.add('move')
         }, 10)
       },
+      reset() {
+        const ball = document.querySelector('.ball')
+        ball.classList.add('reset')
+      }
     }
   }
 </script>
@@ -130,10 +137,6 @@
             position: absolute;
         }
 
-        path {
-            stroke-style: dotted;
-        }
-
         .ball {
             width: 12px;
             height: 12px;
@@ -147,6 +150,12 @@
         }
         .ball.hide {
             opacity: 0;
+        }
+        .ball.reset {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-50%, -50%);
         }
 
         @keyframes move-ball {
