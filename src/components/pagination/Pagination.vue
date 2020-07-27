@@ -76,19 +76,16 @@
         this.pagers = Math.ceil(this.total / this.pageSize)
         for (let i = 1; i <= this.pagers; i++) {arr.push(i)}
         const oneSide = (this.pagerCount - 1) / 2
-        console.log(oneSide)
         if (this.pagers > this.pagerCount) {
           if (this.myCurrentPage < oneSide + 2) {
             arr.splice(this.pagerCount - 1, arr.length - this.pagerCount, 'right')
           } else if (oneSide + 2 <= this.myCurrentPage && this.myCurrentPage < this.pagers - oneSide) {
-            console.log('中间', arr)
             arr.splice(1, this.myCurrentPage - oneSide - 1, 'left')
             const start = arr.indexOf(this.myCurrentPage) + oneSide
             arr.splice(start, arr.length - start - 1, 'right')
           } else {
             arr.splice(1, this.pagers - this.pagerCount, 'left')
           }
-          console.log(arr)
         }
         return arr
       },

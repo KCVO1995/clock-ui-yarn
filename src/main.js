@@ -22,6 +22,7 @@ import plugin from './components/toast/Toast'
 import Switch from './components/switch/Switch'
 import Pagination from './components/pagination/Pagination'
 import VolumeShooter from './components/volumeShooter/VolumeShooter'
+import ScrollIndicator from './components/scrollIndicator/ScrollIndicator'
 
 Vue.component('c-button', Button)
 Vue.component('c-button-group', ButtonGroup)
@@ -44,6 +45,7 @@ Vue.component('g-collapse-item', CollapseItem)
 Vue.component('c-switch', Switch)
 Vue.component('c-pagination', Pagination)
 Vue.component('c-volume-shooter', VolumeShooter)
+Vue.component('c-scroll-indicator', ScrollIndicator)
 Vue.use(plugin)
 
 Vue.config.productionTip = false

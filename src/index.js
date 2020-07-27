@@ -10,16 +10,18 @@ import CloContent from "./components/layout/Content"
 import CloFooter from "./components/layout/Footer"
 import CloSider from "./components/layout/Sider"
 import CloTabs from "./components/tabs/Tabs"
-import CloTabsHead from "./components/tabs/TabsHead"
-import CloTabsBody from "./components/tabs/TabsBody"
-import CloTabsItem from "./components/tabs/TabsItem"
-import CloTabsPane from "./components/tabs/TabsPane"
-import CloPopover from "./Popover"
-import CloCollapse from "./components/collapse/Collapse"
-import CloCollapseItem from "./components/collapse/CollapseItem"
-import CloToast from "./components/toast/Toast"
+import CloTabsHead from './components/tabs/TabsHead'
+import CloTabsBody from './components/tabs/TabsBody'
+import CloTabsItem from './components/tabs/TabsItem'
+import CloTabsPane from './components/tabs/TabsPane'
+import CloPopover from './Popover'
+import CloCollapse from './components/collapse/Collapse'
+import CloCollapseItem from './components/collapse/CollapseItem'
+import CloToast from './components/toast/Toast'
 import CloSwitch from './components/switch/Switch'
 import CloPagination from './components/pagination/Pagination'
+import CloVolumeShooter from './components/volumeShooter/Volume'
+import CloScrollIndicator from './components/scrollIndicator/ScrollIndicator'
 
 export {
   CloButton,
@@ -43,5 +45,7 @@ export {
   CloCollapseItem,
   CloToast,
   CloSwitch,
-  CloPagination
+  CloPagination,
+  CloVolumeShooter,
+  CloScrollIndicator
 }

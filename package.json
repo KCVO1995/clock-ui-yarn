@@ -1,6 +1,6 @@
 {
   "name": "clock-ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "一个简单好用的ui",
   "main": "dist/clock-ui.umd.js",
   "repository": "git@github.com:KCVO1995/clock-ui-yarn.git",
