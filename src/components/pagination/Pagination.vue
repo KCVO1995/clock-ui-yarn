@@ -120,7 +120,6 @@
           const path = e.path || (e.composedPath && e.composedPath())
           let pager = path.find(el => el.classList && el.classList.contains('pager'))
           if (pager && !Number.isNaN(parseInt(pager.innerHTML))) {
-            console.log('avx', parseInt(pager.innerHTML))
             this.changePage(parseInt(pager.innerHTML))
           }
         })
@@ -251,6 +250,7 @@
       align-items: center;
       height: $height;
       > input {
+        border: none;
         margin: 0 15px;
         padding: 5px;
         height: 100%;

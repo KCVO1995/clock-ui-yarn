@@ -34,6 +34,7 @@ module.exports = {
           {text: '分组标签-Tabs', link: '/tabs'},
           {text: '气泡卡片-Popover', link: '/popover'},
           {text: '折叠面板-Collapse', link: '/collapse'},
+          {text: '分页器-Pagination', link: '/pagination'},
         ]
       }
     ],
