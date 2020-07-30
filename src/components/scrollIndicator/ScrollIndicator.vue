@@ -15,7 +15,7 @@
     props: {
       colors: {
         type: Array | String,
-        default: 'green'
+        default: '#75daad'
       },
       scrollElementId: {
         type: String,

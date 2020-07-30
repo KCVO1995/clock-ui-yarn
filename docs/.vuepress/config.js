@@ -36,6 +36,7 @@ module.exports = {
           {text: '折叠面板-Collapse', link: '/collapse'},
           {text: '分页器-Pagination', link: '/pagination'},
           {text: '音量弹射-VolumeShooter', link: '/volumeShooter'},
+          {text: '顶部进度条-ScrollIndicator', link: '/scrollIndicator'},
         ]
       }
     ],
