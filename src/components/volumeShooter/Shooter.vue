@@ -1,10 +1,12 @@
 <template>
-    <div class="shooter" :style="{width: sizeToLength[size] + 'px',height: sizeToHeight[size] + 'px', marginLeft: sizeToOffset[size] + 'px'}">
-        <svg id="svg" width="100%" height="100%">
-            <path fill="transparent" stroke="transparent" stroke-width="1" class="path" />
+    <div class="shooter"
+         :style="{width: sizeToLength[size] + 'px',height: sizeToHeight[size] + 'px', marginLeft: sizeToOffset[size] + 'px'}">
+        <svg id="svg" ref="svg" width="100%" height="100%">
+            <path ref="path" fill="transparent" stroke="transparent" stroke-width="1" class="path"/>
         </svg>
 
-        <div class="ball" :style="{width: sizeToShake[size] + 'px', height: sizeToShake[size] + 'px', background: color}"></div>
+        <div class="ball" ref="ball"
+             :style="{width: sizeToShake[size] + 'px', height: sizeToShake[size] + 'px', background: color}"></div>
         <div class="line" :style="{height: sizeToThickness[size] + 'px'}"></div>
     </div>
 </template>
@@ -54,7 +56,7 @@
         this.run()
       },
       increasing(val) {
-        const ball = document.querySelector('.ball')
+          const ball = this.$refs.ball
         if(val) {
           ball.classList.add('hide')
         } else {
@@ -96,21 +98,19 @@
     },
     methods: {
       run() {
-        const svg = document.querySelector('#svg')
-        const path = svg.querySelector('path')
-        const ball = document.querySelector('.ball')
-        ball.classList.remove('reset')
-        ball.classList.remove('move')
-        // console.log(this.startY, 'startY', this.endX,'endX', this.endY, 'endY' ,this.middleX, 'middleX' ,this.middleY, 'middleY')
-        const pathStr = `M0 ${this.startY} Q ${this.middleX} ${this.middleY} ${this.endX} ${this.endY}`;
-        path.setAttribute('d', pathStr);
-        ball.style.offsetPath = 'path("' + pathStr + '")';
-        setTimeout(() => {
-          ball.classList.add('move')
-        }, 10)
+          const path = this.$refs.path
+          const ball = this.$refs.ball
+          ball.classList.remove('reset')
+          ball.classList.remove('move')
+          const pathStr = `M0 ${this.startY} Q ${this.middleX} ${this.middleY} ${this.endX} ${this.endY}`
+          path.setAttribute('d', pathStr)
+          ball.style.offsetPath = 'path("' + pathStr + '")'
+          setTimeout(() => {
+              ball.classList.add('move')
+          }, 10)
       },
       reset() {
-        const ball = document.querySelector('.ball')
+          const ball = this.$refs.ball
         ball.classList.add('reset')
       }
     }
@@ -120,11 +120,12 @@
 <style lang="scss" scoped>
     .shooter {
         position: relative;
+        z-index: 10;
+
         > .line {
             position: absolute;
             top: 50%;
             left: 50%;
-            height: 4px;
             width: 100%;
             background: #ccc;
             border-radius: 2px;
